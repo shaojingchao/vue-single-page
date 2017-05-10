@@ -1,0 +1,236 @@
+/* 通用 */
+.layui-layer-content{
+    padding: 0;
+}
+
+.lay-normal-box {
+  font-size: 13px;
+  overflow: hidden;
+  overflow-y:auto;
+  color: #333;
+}
+.lay-edit-paper-info{
+    max-height: 480px;
+    width: 580px;
+    border:1px solid #eee;
+    //padding-bottom: 5px;
+
+}
+
+.lay-set{
+    padding-bottom:10px;
+    //border-bottom: 1px solid #ddd;
+    .itm-item {
+        overflow:hidden;
+        padding: 10px 0 10px 100px;
+        .view-title{
+            display: inline-block;
+            margin-left: 20px;
+            cursor: pointer;
+            color: #666;
+            .iconfont{
+                color: #333;
+                font-size: 16px;
+                margin-right: 4px;
+              vertical-align:-2px;
+            }
+        }
+        .item-name {
+            float: left;
+            width: 91px;
+            margin-left: -100px;
+            text-align: right;
+            margin-top: 7px;
+            overflow:hidden;
+        }
+        .test-order-set{
+            display: inline-block;
+            height:33px;
+            line-height:33px;
+            .order-str{
+                margin-right: 20px;
+            }
+        }
+        .tips{
+            font-size: 12px;
+            margin-left: 10px;
+            color:#f00;
+        }
+        textarea{
+            width: 100%;
+            height: 7em;
+        }
+        .w-full{
+            width: 100%;
+        }
+        .type-select{
+            display: inline-block;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            label{
+                cursor: pointer;
+                margin-right:15px;
+            }
+        }
+        .large-text{
+            width: 100%;
+            height: 6em;
+            resize:vertical;
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+    .item-title{
+        background-color: #e5e5e5;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 0.3em 1em;
+        margin: 0;
+    }
+    .item-content{
+        // padding:10px 0;
+        .itm-item{
+            min-height:44px;
+            background: #f7f7f7;
+            padding-right: 20px;
+            margin-bottom: 5px;
+            &:hover{
+                background: #d9f3fe;
+            }
+        }
+    }
+}
+.p-info-item{
+    background: #f7f7f7;
+    margin-bottom: 8px;
+    &:hover .item-title{background: #04a2e9;color: #fff;}
+    &:hover .item-content,&:hover .itm-item{
+        background: #d9f3fe;
+    }
+}
+
+/* 填空题小题 */
+.fillin-list{
+    .fillin-list-nub{
+        margin-bottom: 8px;
+        .item-detail{
+            display: inline-block;
+            margin-left: 10px;
+        }
+    }
+}
+
+/* 解答题 */
+.explain-info{
+    border:1px solid #ddd;
+    .itm-item{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .tab-item{
+        height: 32px;
+        line-height: 32px;
+        background: #f5f5f5;
+        border-bottom: 1px solid #ddd;
+        li{
+            float: left;
+            padding: 0 7px;
+            color: #666;
+            font-size:12px;
+            cursor: pointer;
+            &:hover{
+                color:#0b97c4;
+            }
+            &.on{
+                background: #fff;
+                color: #333;
+                border: 1px solid #ddd;
+                border-bottom:none;
+                cursor: default;
+                margin: -1px;
+            }
+        }
+
+    }
+    .con-item{
+        padding:20px;
+        background: #fff;
+        .itm-item:hover{
+            background: #f7f7f7;
+        }
+        .radio-img{
+            display: inline-block;
+            //padding-top: 28px;
+            line-height:28px;
+            padding-left:26px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .on-line{background: url(/Public/default/image/answer/online.png) no-repeat 0 50%;}
+        .no-line{background: url(/Public/default/image/answer/noline.png) no-repeat 0 50%;}
+    }
+  .sub-tab-item-wrap{
+    margin-top:6px;
+    overflow:hidden;
+    border: 1px solid #ddd;
+    background: #fff;
+    .sub-tab-item{
+      border-bottom: 1px solid #ddd;
+      //overflow: hidden;
+      line-height: 28px;
+      height:28px;
+      background: #f5f5f5;
+      li{
+        float:left;
+        padding:0 6px;
+        font-size:12px;
+        cursor:pointer;
+        &.on{
+          color:#00b2df;
+          border:1px solid #ccc;
+          background:#fff;
+          border-bottom:0;
+          margin:-1px;
+          }
+
+        }
+
+      }
+    .sub-tab-con{
+      padding:10px;
+      }
+    }
+
+}
+
+
+.J_content-edit{
+    padding:10px;
+    background-color: #f1f1f1;
+    border:1px solid #d2d2d2;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    max-height:350px;
+    overflow: auto;
+    line-height:48px;
+}
+/*设置题号*/
+.lay-edit-order{
+    height:33px;
+    line-height:33px;
+    .curr-order{
+        padding-right:10px;
+    }
+}
+
+.prompt{
+    em{
+        color: #04A2E9;
+    }
+}
+.ctrl-block-show{
+    margin-top:6px;
+    label{
+        line-height: 20px;
+        margin-right:50px;
+    }
+}

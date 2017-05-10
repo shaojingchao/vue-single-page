@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="cn">
+<head>
+    <title>配置答题卡 - {#$config.IndexName#}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="{#$config.Keyword#}" />
+    <meta name="description" content="{#$config.Description#}" />
+<!--/*    <script src="/static/plugin/jquery-1.11.1.min.js"></script>-->
+    <!--<link rel="stylesheet" href="../../css/card.css">-->
+    <!--<link rel="stylesheet" href="/static/plugin/layer/skin/layer.css">-->
+    <!--<script src="/static/plugin/layer/layer.js"></script>-->
+    <!--<script src="/static/plugin/vue/vue.js"></script>-->
+    <!--<script src="/static/plugin/sea.js"></script>*/-->
+    <link rel="stylesheet" href="__PUBLIC__/default/css/card.css{#$Think.config.WLN_UPDATE_FILE_DATE#}" />
+    <script type="text/javascript" src="__PUBLIC__/plugin/jquery-1.8.0.min.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/plugin/layer/skin/layer.css" />
+    <script type="text/javascript" src="__PUBLIC__/plugin/layer/layer.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/plugin/sea.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/plugin/vue/vue.js"></script>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.4/lodash.js"></script>
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="__PUBLIC__/plugin/png.js"></script>
+    <script>DD_belatedPNG.fix('a,img,div,span');</script>
+    <![endif]-->
+    <!--<script type="text/javascript" src="__PUBLIC__/plugin/ajax_uploadimage/jquery.wallform.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/plugin/webuploader/webuploader.css">
+    <script type="text/javascript" src="__PUBLIC__/default/js/common{#$Think.config.WLN_PICK_JS#}.js{#$Think.config.WLN_UPDATE_FILE_DATE#}"></script>
+    <script type="text/javascript" src="__PUBLIC__/default/js/paper{#$Think.config.WLN_PICK_JS#}.js{#$Think.config.WLN_UPDATE_FILE_DATE#}"></script>
+
+
+    <script>
+        var local='{#:U('Index/answer')#}';
+        var school='{#$school#}';
+        
+        Vue.component('modal', {
+            template: '#modal-template'
+        });
+    </script>
+</head>
+
+<body>
+<!--root模版-->
+<div class="is-old-ie" style="display: none;">
+    提示：您可以使用以下浏览器：<a href="https://www.baidu.com/s?ie=UTF-8&wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8" title="下载谷歌浏览器">谷歌浏览器</a>
+    <a href="http://www.firefox.com.cn/" title="下载火狐浏览器">火狐浏览器</a>
+    <a href="http://chrome.360.cn/" title="下载360极速浏览器">360极速浏览器</a>
+</div>
+<div id="app">
+</div>
+
+<div id="tpl-source" style="display:none">
+    <!--弹出框-公共组件-->
+    <link rel="import" href="../include/vue-alert.tpl?__inline"/>
+
+    <!--分卷-->
+    <!--alert-part-info-->
+    <link rel="import" href="../include/alert/alert-part-info.tpl?__inline"/>
+
+
+    <!--left-con-->
+    <!--<link rel="import" href="../include/paper-style.tpl?__inline"/>-->
+    <link rel="import" href="../include/paper-style-1.tpl?__inline"/>
+    <link rel="import" href="../include/main/main-top.tpl?__inline"/>
+    <link rel="import" href="../include/alert/alert-title.tpl?__inline"/>
+
+    <!--编辑答题卡-->
+    <link rel="import" href="../include/main/exam-info-a4.tpl?__inline"/>
+    <link rel="import" href="../include/main/exam-info-a3.tpl?__inline"/>
+    <link rel="import" href="../include/alert/alert-exam-info.tpl?__inline"/>
+
+    <!--添加试题-alert-->
+    <link rel="import" href="../include/alert/alert-add-tianKongTi.tpl?__inline"/>
+    <link rel="import" href="../include/alert/alert-add-xuanZeTi.tpl?__inline"/>
+    <link rel="import" href="../include/alert/alert-add-jieDaTi.tpl?__inline"/>
+    <link rel="import" href="../include/alert/alert-edit-jieDaTi.tpl?__inline"/>
+    <!--<link rel="import" href="../include/alert/alert-add-img.tpl?__inline"/>-->
+    <!--<link rel="import" href="../include/alert/alert-add-desc.tpl?__inline"/>-->
+    <link rel="import" href="../include/alert/alert-add-xuanDaTi.tpl?__inline"/>
+    <link rel="import" href="../include/alert/alert-add-EN_zuoWen.tpl?__inline"/>
+    <link rel="import" href="../include/alert/alert-add-CN_zuoWen.tpl?__inline"/>
+    <link rel="import" href="../include/alert/alert-tool-set-ques-order.tpl?__inline"/>
+
+    <!--编辑试题title-->
+    <link rel="import" href="../include/alert/alert-edit-ques-title.tpl?__inline"/>
+
+    <!--right-con-->
+    <link rel="import" href="../include/sidebar/type-style.tpl?__inline"/>
+    <link rel="import" href="../include/sidebar/exam-type.tpl?__inline"/>
+    <link rel="import" href="../include/sidebar/add-test.tpl?__inline"/>
+    <link rel="import" href="../include/sidebar/score-view.tpl?__inline"/>
+    <link rel="import" href="../include/sidebar/forbid-view.tpl?__inline"/>
+    <link rel="import" href="../include/sidebar/test-list.tpl?__inline"/>
+    <link rel="import" href="../include/sidebar/side-btm-handle.tpl?__inline"/>
+</div>
+
+
+
+<script type="text/html" id="tpl-main">
+    <div class="content clearfix" id="answer-content">
+        <tpl-alert-title
+                v-bind:title="title"
+                v-bind:modal="alert">
+        </tpl-alert-title>
+
+        <!--编辑答题卡-->
+        <alert-exam-info
+                v-bind:data="data"
+                v-bind:care="data.care"
+                v-bind:modal="alert">
+        </alert-exam-info>
+
+        <!--编辑分卷信息-->
+        <alert-part-info
+                v-bind:examPart="data.paper"
+                v-bind:modal="alert">
+        </alert-part-info>
+
+        <!--添加填空题-->
+        <alert-tiankongti
+                v-bind:modal="alert"
+                v-bind:examPart="data.paper"
+                v-bind:examOrderIDArray="examOrderIDArray">
+        </alert-tiankongti>
+
+        <!--选择题-->
+        <alert-xuanzeti
+                v-bind:modal="alert"
+                v-bind:examOrderIDArray="examOrderIDArray">
+        </alert-xuanzeti>
+
+        <!--解答题-->
+        <alert-jiedati
+                v-bind:modal="alert"
+                v-bind:examOrderIDArray="examOrderIDArray">
+        </alert-jiedati>
+
+        <!--编辑解答题-->
+        <alert-edit-jiedati
+                v-bind:modal="alert">
+        </alert-edit-jiedati>
+
+        <!--选答题-->
+        <alert-xuandati
+                v-bind:modal="alert"
+                v-bind:examOrderIDArray="examOrderIDArray">
+        </alert-xuandati>
+
+        <!--英语作文-->
+        <alert-en-zuowen
+                v-bind:modal="alert"
+                v-bind:examOrderIDArray="examOrderIDArray">
+        </alert-en-zuowen>
+
+        <!--语文作文-->
+        <alert-cn-zuowen
+                v-bind:modal="alert"
+                v-bind:examOrderIDArray="examOrderIDArray">
+        </alert-cn-zuowen>
+
+        <!--编辑试题title-->
+        <alert-edit-ques-title
+                v-bind:examPart="data.paper"
+                v-bind:modal="alert">
+        </alert-edit-ques-title>
+
+        <!--添加试题弹出框-END-->
+        <!--答题卡显示区-->
+        <div class="left-con" id="left-con">
+            <div class="content-box" id="content-box">
+                <paper-style
+                        v-bind:dataState="dataState"
+                        v-bind:data="data"
+                        v-bind:examPart="data.paper"
+                        v-bind:type="data.type"
+                        v-bind:care="data.care"
+                        v-bind:modal="alert"
+                        v-bind:title="title"
+                        v-bind:score="data.score"
+                        v-bind:layout="data.layout">
+                </paper-style>
+            </div>
+        </div>
+        <!--答题卡显示区-END-->
+        <!-- 右侧操作 -->
+        <div class="right-con" id="right-con">
+            <div class="panel-item" v-if="answerType != ''">
+                <div class="title">答题卡格式</div>
+                <div class="answer-type">
+                    <p v-if="answerType == '1'">统一答题卡</p>
+                    <p v-if="answerType == '2'">AB卷</p>
+                </div>
+            </div>
+            <div class="panel-item">
+                <div class="title">选择版式</div>
+                <type-style
+                v-bind:layout="data.layout">
+
+                </type-style>
+            </div>
+            <div class="panel-item">
+                <div class="title">考试类型</div>
+                <exam-type
+                        v-bind:type="data.type">
+                </exam-type>
+            </div>
+            <div class="panel-item">
+                <div class="title">添加试题</div>
+                <add-test
+                        v-bind:modal="alert"
+                ></add-test>
+            </div>
+            <div class="panel-item">
+                <div class="title">显示分数</div>
+                <score-view
+                        v-bind:score="data.score">
+                </score-view>
+            </div>
+            <!--<div class="panel-item">-->
+                <!--<div class="title">设置禁止作答区</div>-->
+                <!--<forbid-view>-->
+                <!--</forbid-view>-->
+            <!--</div>-->
+            <div class="panel-item">
+                <div class="title">试题列表</div>
+                <test-list
+                        v-bind:modal="alert"
+                        v-bind:examPart="data.paper">
+
+                </test-list>
+            </div>
+        </div>
+        <side-btm-handle v-bind:page="computedPage"></side-btm-handle>
+    </div>
+</script>
+<script type="text/javascript" src="__PUBLIC__/plugin/webuploader/webuploader.js"></script>
+<script type="text/javascript">
+    seajs.use("__PUBLIC__/default/js/answer");
+</script>
+</body>
+</html>

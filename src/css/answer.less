@@ -1,0 +1,528 @@
+/* 变量 */
+@red: #e4037f;
+@border: 1px solid @red;
+/* 公用 */
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  overflow: hidden;
+  position: relative;
+  width: 1118px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  background: #e3e3e3;
+}
+
+.left-con {
+  float: left;
+  width: 841px;
+  border: 1px solid #d4d4d4;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #eeeeee;
+}
+
+/* 按钮 */
+.btn-item {
+  position: absolute;
+  right: 18px;
+  bottom: 0;
+  width: 260px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  padding-bottom: 10px;
+  text-align: center;
+  .btn {
+    margin-top: 15px;
+    margin-right:0;
+  }
+  .btn-defult{
+    width:212px;
+  }
+}
+
+.paper-title {
+  font-size: 21px;
+  line-height: 1.1;
+  span {
+    display: block;
+  }
+}
+.main-top{
+   padding: 5px 0 5px;
+}
+.mintitle {
+  padding:5px 0;
+}
+
+.subtitle {
+  font-size:20px;
+  padding:5px 0;
+}
+
+.name {
+  padding:5px 0;
+  //margin: -9px 0;
+  overflow: hidden;
+}
+
+.con-height {
+  min-height: 994px;
+}
+
+.box-warp {
+  position: relative;
+  margin: 20px auto;
+  border: 1px solid #d4d4d4;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, .15);
+  background-color: #fff;
+
+}
+
+.part-height {
+  height: 985px;
+}
+
+/* 外层边框 */
+.part-wrap {
+  margin-top: 10px;
+  border: @border;
+  border-radius: 8px;
+  .part-box {
+    margin: 0 7px;
+    border: 1px solid #000;
+    border-top:0;
+    .ques-type{
+      border-top:1px solid #000;
+    }
+    .score {
+      margin-left: 5px;
+      font-size: 12px;
+    }
+  }
+  .part-title {
+    font-size: 15px;
+    line-height: 22px;
+    height: 22px;
+    margin:0 8px;
+    //overflow: hidden;
+  }
+  .q-title {
+    //border-top:1px solid #333;
+  }
+  .part-tips {
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+  }
+}
+
+/* 鼠标移入事件 */
+.hover {
+  position: relative;
+}
+
+.hover:hover {
+  outline: 1px solid #04a2e9;
+  box-shadow: 0 3px 25px 5px rgba(0,0,0,.4);
+  z-index:100;
+  transition:box-shadow 0.2s;
+}
+
+.hover:hover .part-menu {
+  display: block;
+}
+
+.hover:hover .content-list .line .number-child {
+  background: #d4f1fe;
+}
+
+/* 鼠标移入编辑 */
+.part-menu {
+  display: none;
+  position: absolute;
+  right: -1px;
+  //left:-1px;
+  top: -22px;
+  z-index: 99;
+  font-size:0;
+  text-align: right;
+  .btn {
+    display: inline-block;
+    background-color: #04a2e9;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    padding: 0 0.5em;
+    font-size: 12px;
+    border-radius: 0;
+    .iconfont {
+      margin-right: 2px;
+    }
+    &:hover {
+      background-color: #1cabeb;
+    }
+  }
+}
+
+//试题标题
+.q-title-inner{
+  padding:8px 20px 8px;
+  border-bottom:1px solid #000;
+}
+
+
+/* ================ 选择题 ================*/
+
+.q-choice {
+  padding: 10px 8px;
+  .choice-item {
+    overflow: hidden;
+    display: inline-block;
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    vertical-align: top;
+    padding: 0 9px;
+    .item-number {
+      display: inline-block;
+      width: 14px;
+      text-align: center;
+    }
+    .item-option {
+      line-height: 24px;
+      display: inline-block;
+      width: 28px;
+      height: 24px;
+      color: @red;
+      text-align: center;
+      .pad4 {
+        width: 14px;
+        //height: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+  //竖版
+  .vertical-choice {
+    height: auto;
+    vertical-align: top;
+    .order-item {
+      float: left;
+      width: 28px;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* ================ 填空题 ================*/
+.q-content {
+  padding: 0 20px 10px;
+  &.tk-set-margin {
+    .content-list {
+      margin-left: -15px;
+      margin-right: -15px;
+      .item-list {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    }
+  }
+  .content-list {
+    position: relative;
+    span {
+      display: inline-block;
+    }
+    .item-list {
+      .number {
+        width: 16px;
+        text-align: right;
+      }
+    }
+    .number {
+      min-height: 30px;
+      padding-top: 20px;
+      font-size: 12px;
+    }
+    .line {
+      border-bottom: 1px solid #000;
+      height: 48px;
+      position: relative;
+      .number-child {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: #fff;
+        padding: 0 4px 7px 0;
+        margin-bottom: -8px;
+        font-size: 12px;
+      }
+    }
+    .que-pic {
+      position: absolute;
+      top: 36px;
+      right: 0;
+      text-align: right;
+      .que-pic-item {
+        display: inline-block;
+        text-align: center;
+        max-width: 160px;
+        font-size: 12px;
+        img {
+          width: 100%;
+        }
+        span {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}
+
+/* ================ 解答题 ================*/
+//.no-line .q-content .line {
+//  border-bottom: 1px solid #fff;
+//}
+
+/* ================ 选做题 ================*/
+.choice-more {
+  .q-title{
+    border-bottom:1px solid #333;
+  }
+  .choice-more-detail {
+    line-height: 20px;
+    font-size: 12px;
+    padding:8px 20px;
+    .title-num {
+      color: @red;
+      margin-left: 3px;
+      text-align: center;
+      b{
+        width: 20px;
+        display: inline-block;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+/* 英语作文 */
+.writing-En {
+  .item-list .line {
+    height: 42px;
+  }
+  .textarea textarea {
+    border: none;
+    width: 646px;
+    overflow: hidden;
+    resize: none;
+    margin-top: 15px;
+    line-height: 26px;
+    background-color: transparent;
+  }
+}
+
+/* 语文作文 */
+.composition {
+  .com-title {
+    margin: 10px 0;
+  }
+  .com-grid {
+    margin-left: 4px;
+    padding-left: 1px;
+
+    span {
+      display: inline-block;
+      float: left;
+      width: 27px;
+      height: 27px;
+      border: 1px solid #000;
+      margin-left: -1px;
+      margin-bottom: 8px;
+      position: relative;
+      .tips {
+        position: absolute;
+        bottom: -11px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+/* 禁止作答区 */
+.no-writing {
+  background: #f1f1f1;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  height: 240px;
+  line-height: 240px;
+  margin-bottom: 10px;
+}
+
+/* 分页 */
+.page {
+  position: absolute;
+  bottom: 42px;
+  left: 0;
+  right:0;
+}
+
+.page-total{
+  color:#e25a08;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.choice-a3 {
+  padding: 10px;
+  .choice-item {
+    min-width: 138px;
+  }
+}
+
+/* 标记黑块 */
+.black-mark {
+  position: absolute;
+  .triangle {
+    width: 0;
+    height: 0;
+    display: inline-block;
+  }
+  .square {
+    width: 20px;
+    height: 10px;
+    display: inline-block;
+    background-color: #000;
+  }
+}
+
+.mark1 {
+  top: 35px;
+  left: 25px;
+  .triangle {
+    border-top: 20px solid #000;
+    border-right: 20px solid transparent;
+  }
+  .square {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+}
+
+.mark2 {
+  top: 35px;
+  right: 25px;
+  .triangle {
+    border-top: 20px solid #000;
+    border-left: 20px solid transparent;
+  }
+  .square {
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+}
+
+.mark3 {
+  bottom: 35px;
+  left: 25px;
+  .triangle {
+    border-bottom: 20px solid #000;
+    border-right: 20px solid transparent;
+  }
+  .square {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+}
+
+.mark4 {
+  bottom: 35px;
+  right: 25px;
+  .triangle {
+    border-bottom: 20px solid #000;
+    border-left: 20px solid transparent;
+  }
+  .square {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+}
+
+
+/* A4尺寸 */
+.box-a4 {
+  width: 794px;
+  //height: 1113px;
+  padding: 55px 45px 64px;
+  .exam-intro {
+    padding: 8px 7px 8px 8px;
+    // margin:2px 0;
+  }
+  .part-wrap {
+    //width: 704px;
+    .part-box {
+      //width: 688px;
+      .question {
+        min-height: 50px;
+      }
+    }
+    .part-title {
+      //width: 688px;
+      margin: 0 8px;
+    }
+  }
+}
+
+/* A3尺寸 */
+.box-a3 {
+  .q-content {
+    padding: 0 10px
+  }
+  width: 525px;
+  //height: 1113px;
+  padding: 55px 31px 64px;
+  .part-wrap {
+    width: 461px;
+    .part-box {
+      width: 445px;
+      .question {
+        padding: 0 0 10px;
+        min-height: 40px;
+      }
+    }
+  }
+  .q-choice {
+    .choice-item {
+      padding:0 6px;
+    }
+    .vertical-choice {
+      .order-item {
+        width: 26px;
+      }
+    }
+  }
+  .q-title-inner{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .choice-more{
+    .choice-more-detail {
+      padding:8px 10px;
+    }
+  }
+}

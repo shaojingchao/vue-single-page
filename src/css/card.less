@@ -1,0 +1,45 @@
+@import (inline) "./base.css";
+@import "answer.less";
+@import "title-info.less";
+@import "right.less";
+@import "answer-alert.less";
+@import "jd-kong.less";
+@import "alert.less";
+@import "upload-image.less";
+
+.is-old-ie{
+  display: none;
+  background: #fffddf;
+  color: #2ec7ff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 3;
+  border-bottom: 1px solid #ddd;
+  a{
+    margin:0 10px;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+.flip-list-move {
+  box-shadow: 0 0 10px 5px rgba(0, 149, 255, 0.36);
+  transition: transform 1s;
+}
+.moving-style {
+  box-shadow: 0 0 10px 5px rgba(0, 149, 255, 0.36);
+}
+
+//effect
+@shadow: rgba(0,0,0,.3);
+.animated-flash{
+  -webkit-animation:flash 0.6s .15s ease both;
+  -moz-animation:flash 0.6s .15s ease both;}
+@-webkit-keyframes flash{
+  0%,50%,100%{opacity: 1;box-shadow: 0 10px 60px 10px @shadow;}
+  25%,75%{opacity: 0.7;box-shadow:none;}
+}
+@-moz-keyframes flash{
+  0%,50%,100%{opacity: 1;box-shadow: 0 10px 60px 10px @shadow;}
+  25%,75%{opacity: 0.7;box-shadow:none;}
+}

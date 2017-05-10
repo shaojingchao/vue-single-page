@@ -1,0 +1,139 @@
+
+是否显示 0不显示 1显示
+版式A3 A4
+顶部类型：每种版式4种
+客观题类型：1大写字母 2小写字母 3判断对错
+排列方式：1横排 2竖排
+试题块类型：0：客观题 1：解答题 2：选做题 3：语文作文 4英语作文
+占几行：0.3 3分之一行 0.5二分之一行 1一行 2两行
+每一行subject或者choose代表一个块
+
+
+//答题卡json数据格式
+[
+	'top'=>['display'=>1,'content'=>'姓名________班级________考号________座位号________'], //顶部信息
+	'title'=>['display'=>1,'content'=>'XX县高级中学高二下学期月考'], //标题
+	'sub'=>['display'=>1,'content'=>'语文答题卡'], //副标题
+	'layout'=>['style'=>'A4'], //版式
+	'type'=>['display'=>1], //顶部类型（显示类型，顶部区域有N种固定类型）
+	'code'=>['display'=>1], //条形码
+	'num'=>['display'=>1,'length'=>10], //准考证号
+	'care'=>['display'=>1,'content'=>'1、答题前2、答题后'], //注意事项
+	'miss'=>['display'=>1], //缺考标记
+	'score'=>['display'=>1], //是否显示分值
+	'paper'=>[ //试卷
+		0=>[ //第一卷
+			'title'=>'第Ⅰ卷', //标题
+			'desc'=>'请用2B铅笔填涂', //描述
+			'list'=>[
+				0=>[
+					'title'=>'标题', //标题
+					'display'=>1, //是否显示title
+					'type': 0, //客观题	0：客观题 1：解答题 2：选做题 3：语文作文 4英语作文
+					'style': 0, //横排0  竖排1    
+					'content'=>[ //客观内容
+						['style'=>1,'order'=>1,'small'=>0,'num'=>4],
+						【类型，题号，小题序号例如（1），选项数量】
+						['style'=>1,'order'=>2,'small'=>0,'num'=>4],
+						['style'=>1,'order'=>3,'small'=>0,'num'=>4],
+						['style'=>1,'order'=>4,'small'=>0,'num'=>4],
+						['style'=>1,'order'=>5,'small'=>0,'num'=>4],
+						['style'=>1,'order'=>6,'small'=>0,'num'=>4],
+						['style'=>1,'order'=>7,'small'=>0,'num'=>4],
+						['style'=>1,'order'=>11,'small'=>1,'num'=>4]
+					]
+				]
+				1=>[
+					'title'=>'标题',
+					'display'=>1,
+					'type': 1, //解答题     0：客观题 1：解答题 2：选做题 3：语文作文 4英语作文
+					'content'=>[
+						['order'=>9,'small'=>1,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>5],
+						['order'=>9,'small'=>2,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>5],
+						【题号，当前小题数，下划线，空数，行宽0.3代表1/3，分值】
+						['order'=>10,'small'=>1,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>5],
+						['order'=>10,'small'=>2,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>5],
+						['order'=>11,'small'=>2,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>3],
+						['order'=>12,'small'=>0,'uline'=>1,'kong'=>0,'hline'=>10,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述'],
+						【题号，当前小题数，下划线，每小题对应空数大题kong为0，行数，分值，图像，描述】
+						['order'=>13,'small'=>1,'uline'=>1,'kong'=>0,'hline'=>10,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述'],
+						['order'=>13,'small'=>2,'uline'=>1,'kong'=>0,'hline'=>10,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述']
+					]
+				]
+				2=>[
+					'title'=>'标题',
+					'display'=>1,
+					'type': 2, //选做题     0：客观题 1：解答题 2：选做题 3：语文作文 4英语作文
+					'do'=>1, //只有选做题不为0
+					'content'=>[
+						['order'=>13,'small'=>0,'uline'=>0,'hline'=>5,'kong'=>0,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述']
+						['order'=>14,'small'=>0,'uline'=>1,'hline'=>7,'kong'=>0,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述']
+						['order'=>15,'small'=>0,'uline'=>1,'hline'=>10,'kong'=>0,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述']
+						【类型选做题，题号，步骤序号默认无，下划线，行数，分值，总数，选做个数，图像，描述】
+						说明：选做题small必须相同，uline只有全部有下划线才有，hline取最大值，分值必须一样，多个图像要同时显示
+					]
+				]
+			]
+		]
+		1=>[ //第二卷
+			'title'=>'第II卷',
+			'desc'=>'（请用黑色签字笔作答）',
+			'list'=>[
+				'title'=>'标题',
+				'display'=>1,
+				0=>[
+					'title'=>'标题',
+					'display'=>1,
+					'type': 1, //解答题     0：客观题 1：解答题 2：选做题 3：语文作文 4英语作文
+					'content'=>[
+						['order'=>9,'small'=>1,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>5],
+						['order'=>9,'small'=>2,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>5],
+						【题号，当前小题数，下划线，空数，行宽0.3代表1/3，分值】
+						['order'=>10,'small'=>1,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>5],
+						['order'=>10,'small'=>2,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>5],
+						['order'=>11,'small'=>2,'uline'=>1,'kong'=>2,'hline'=>0.3,'score'=>3],
+						['order'=>12,'small'=>0,'uline'=>1,'kong'=>0,'hline'=>10,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述'],
+						【题号，当前小题数，下划线，每小题对应空数大题kong为0，行数，分值，图像，描述】
+						['order'=>13,'small'=>1,'uline'=>1,'kong'=>0,'hline'=>10,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述'],
+						['order'=>13,'small'=>2,'uline'=>1,'kong'=>0,'hline'=>10,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述']
+					]
+				]
+				1=>[
+					'title'=>'标题',
+					'display'=>1,
+					'type': 2, //选做题     0：客观题 1：解答题 2：选做题 3：语文作文 4英语作文
+					'do'=>1, //只有选做题不为0
+					'content'=>[
+						['order'=>13,'small'=>0,'uline'=>0,'kong'=>0,'hline'=>5,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述']
+						['order'=>14,'small'=>0,'uline'=>1,'kong'=>0,'hline'=>7,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述']
+						['order'=>15,'small'=>0,'uline'=>1,'kong'=>0,'hline'=>10,'score'=>6,'img'=>[['http://aaa.com/a.jpg','描述'],['http://aaa.com/a.jpg','描述']],'desc'=>'试题描述']
+						【类型选做题，题号，步骤序号默认无，下划线，行数，分值，总数，选做个数，图像，描述】
+						说明：选做题small必须为0，uline只有全部有下划线才有，hline取最大值，分值必须一样，多个图像要同时显示
+					]
+				]
+				2=>[
+					'title'=>'标题',
+					'display'=>1,
+					'type': 3, //语文作文     0：客观题 1：解答题 2：选做题 3：语文作文 4英语作文
+					'content'=>[
+						['order'=>15,'char'=>800,'score'=>60,'desc'=>'试题描述']
+						【题号，字数，分值，描述】
+					]
+				]
+				3=>[
+					'title'=>'标题',
+					'display'=>1,
+					'type': 4, //英语作文     0：客观题 1：解答题 2：选做题 3：语文作文 4英语作文
+					'content'=>[
+						['order'=>14,'uline'=>1,'hline'=>10,'score'=>20,'desc'=>'试题描述'],
+						【题号，下划线，行数，分值，描述】
+					]
+				]
+			]
+		]
+	]
+]
+
+
+语文作文根据每行的字数 动态设置字数提示信息
+试题描述放在试题的题号后面，如果为选做题则是单独的描述框

@@ -1,0 +1,280 @@
+/*行高*/
+@hang-height: 48px;
+/*空间隙*/
+@hang-space: 30px;
+//base
+.jd-kong-list {
+  //padding:0 20px;
+  //overflow: hidden;
+  //解答题块 分割线
+  //.block-line{
+  //  display:block;
+  //  height:0;
+  //  border-bottom:1px solid #333;
+  //  }
+  .jd-kong-list-item{
+  }
+  .jd-hang-item {
+    //float: left;
+    //border:1px dotted #fff;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: inline-block;
+    &.only-hang {
+      display: block;
+    }
+  }
+  .jd-kong-item {
+    float: left;
+    min-height: @hang-height;
+    overflow: hidden;
+    &:after {
+      content: "";
+      height: @hang-height;
+      box-sizing: border-box;
+      display: block;
+      border-bottom: 1px solid #333;
+    }
+    &.no-line {
+      &:after {
+        border-bottom: 0;
+      }
+    }
+  }
+  //图片
+  .hang-has-img {
+    height: auto;
+    &:after {
+      border-bottom: 0;
+    }
+    .jd-img-list {
+      float: left;
+      //padding-top: 15px;
+      .img-item-cell{
+        display: block;
+        padding-top: 15px;
+        overflow:hidden;
+      }
+      .img-item {
+        //position: relative;
+        ////display: table-cell;
+        //text-align: center;
+        //font-size:0;
+        //vertical-align: middle;
+        //height: 130px;
+        //max-width: 260px;
+        //padding-top: 10px;
+        &:hover{
+          //background-color:#f1f1f1;
+          .del-img{
+            display: block;
+          }
+        }
+        .del-img{
+          font-size: 12px;
+          height: 16px;
+          line-height: 16px;
+          padding: 0 5px;
+          display: none;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          color: red;
+        }
+      }
+
+      &.big-block { /*解答题配图*/
+        text-align: right;
+        float: right;
+        img {
+          display: block;
+          float: right;
+          max-width:260px;
+          max-height:260px;
+
+        }
+      }
+      .img-item-desc {
+        display: inline-block;
+        line-height: 1.8;
+        color: #555;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .jd-order, .jd-sub {
+    float: left;
+    display: block;
+    //max-width: 2em;
+    min-width: 1em;
+    @font-height: 20px;
+    height: @font-height;
+    line-height: @font-height;
+    margin-top: @hang-height - @font-height;
+    background-color: #fff;
+  }
+  .jd-order {
+    font-size: 12px;
+  }
+  .jd-sub {
+    font-size: 12px;
+  }
+  .jd-jdt {
+    margin-top:0;
+  }
+  .jdt-block-line{
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    height:1px;
+    background-color: #000;
+  }
+  .jd-hang-p10{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .jd-hang-npb{
+    padding-bottom: 0;
+  }
+}
+
+/*A4 版*/
+.box-a4 {
+  @hang-w-1-1: 642px;
+  @hang-w-1-2: 321px;
+  @hang-w-1-3: 214px;
+  .jd-kong-list {
+    .jd-kong-item {
+      &:after {
+        margin: 0 @hang-space/2;
+      }
+    }
+    //图片
+    .hang-has-img {
+      .jd-img-list {
+        .kong-img-1-3 {
+          img {
+            max-width: @hang-w-1-3 - 15px;
+          }
+        }
+        .kong-img-1-1 {
+          img {
+            max-width: @hang-w-1-1 - 15px;
+          }
+        }
+        .kong-img-1-2 {
+          img {
+            max-width: @hang-w-1-2 - 15px;
+          }
+        }
+      }
+    }
+    .hang-1-3 {
+      width: @hang-w-1-3;
+    }
+    .hang-1-1 {
+      width: @hang-w-1-1;
+    }
+    .hang-1-2 {
+      width: @hang-w-1-2;
+    }
+  }
+  .jdt-block-line{
+    left:-20px;
+    right:-20px;
+  }
+}
+
+/*A3 版*/
+.box-a3 {
+  @hang-space: 22px;
+  @hang-w-1-1: 420px;
+  @hang-w-1-2: 210px;
+  @hang-w-1-3: 140px;
+  .jd-kong-list {
+    .jd-kong-item {
+      &:after {
+        margin: 0 @hang-space/2;
+      }
+    }
+    //图片
+    .hang-has-img {
+      .jd-img-list {
+        .kong-img-1-3 {
+          img {
+            max-width: @hang-w-1-3 - @hang-space/2;
+          }
+        }
+        .kong-img-1-1 {
+          img {
+            max-width: @hang-w-1-1 - @hang-space/2;
+          }
+        }
+        .kong-img-1-2 {
+          img {
+            max-width: @hang-w-1-2 - @hang-space/2;
+          }
+        }
+      }
+    }
+    .hang-1-3 {
+      width: @hang-w-1-3;
+    }
+    .hang-1-1 {
+      width: @hang-w-1-1;
+    }
+    .hang-1-2 {
+      width: @hang-w-1-2;
+    }
+  }
+  .jdt-block-line{
+    left:-10px;
+    right:-10px;
+  }
+}
+
+//单题编辑
+.jd-hang-item {
+  position: relative;
+  float: left;
+  .ques-handle-group {
+    position: absolute;
+    right:0;
+    top:0;
+    z-index: 100;
+    font-size: 12px;
+    overflow: hidden;
+    .btn {
+      float: left;
+      line-height: 20px;
+      height: 20px;
+      padding: 0 4px;
+      margin-right:1px;
+      color: #fff;
+      background: #ff8449;
+      border-radius: 1px;
+    }
+  }
+  .J_layer-box{
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index: 100;
+    background-color: rgba(255,130,77,0.2);
+    border:1px solid #ff8449;
+    box-shadow: 0 1px 8px rgba(0,0,0,.3);
+    transition:box-shadow 0.5s;
+  }
+}
+
+//解答题描述
+.J_ques-desc{
+  float: left;
+  font-size: 13px;
+  width:100%;
+  word-wrap: break-word;
+}

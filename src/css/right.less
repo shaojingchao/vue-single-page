@@ -1,0 +1,207 @@
+/* 右侧面板 */
+
+.right-con {
+    overflow: hidden;
+    overflow-y:scroll;
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    width: 278px;
+    background: #fff;
+    border: 1px solid #dddddd;
+    border-top: none;
+    .title {
+        height: 32px;
+        line-height: 32px;
+        background: #f1f0f0;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        padding-left: 20px;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 9px;
+            left: 10px;
+            width: 3px;
+            height: 14px;
+            background: #04a2e9;
+        }
+    }
+    .panel-order {
+        padding: 12px 0 12px 20px;
+        overflow: hidden;
+        .type-select label{
+            cursor:pointer;
+            margin: 15px;
+        }
+        .choice{
+            position: relative;
+            background:#d6f1fc;
+            border-color: #1798d0;
+            color: #1798d0;
+            &::before{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right:0;
+                width: 16px;
+                height: 15px;
+                background:url(/Public/default/image/answer/choice.png) no-repeat;
+            }
+        }
+    }
+    /*选择答题卡版式*/
+    .answer-type {
+        text-align: center;
+        font-size: 16px;
+        padding: 16px 0;
+        color: #1798d0;
+        width: 100px;
+        margin: 10px auto;
+        border: 1px solid #1798d0;
+        background-color: #d6f1fc;
+    }
+    /* 选择版式 */
+    .format li {
+        float: left;
+        width: 104px;
+        text-align: center;
+        font-size: 12px;
+        cursor: pointer;
+        .format-img {
+            width: 64px;
+            height: 52px;
+            line-height: 46px;
+            border: 1px solid #bfbfbf;
+            display: inline-block;
+            img {
+                vertical-align: middle;
+            }
+            &:hover{
+                background: #d6f1fc;
+                border-color: #1798d0;
+            }
+            &.choice{
+                border-color:#1798d0;
+            }
+        }
+        p {
+            margin-top: 6px;
+        }
+    }
+
+    /* 考试类型 */
+    .examtype{
+        margin-bottom: -10px;
+        a{
+            display: inline-block;
+            width: 104px;
+            height: 32px;
+            line-height: 30px;
+            text-align:center;
+            color: #333;
+            border:1px solid #c3c3c3;
+            margin:0 10px 10px 0;
+            &:hover{
+                background: #d6f1fc;
+                border-color: #1798d0;
+                color: #1798d0;
+            }
+        }
+    }
+
+    /* 添加试题 */
+    .addtest{
+        margin-bottom: -10px;
+        a{
+            display: inline-block;
+            width: 104px;
+            height: 38px;
+            line-height: 38px;
+            color: #333;
+            background: #ededed;
+            margin:0 10px 10px 0;
+            overflow: hidden;
+            padding-left: 37px;
+            position: relative;
+            span{
+                position: absolute;
+                top: 7px;
+                left: 8px;
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                line-height: 22px;
+                border:1px solid #04a2e9;
+                color: #04a2e9;
+                background: #fff;
+                border-radius: 50%;
+                text-align: center;
+            }
+            &:hover{
+                background: #d6f1fc;
+            }
+        }
+    }
+    /* 试题列表 */
+    .testlist{
+        padding-right: 20px;
+        padding-bottom:168px;
+        overflow-y: auto;
+        li{
+            line-height: 31px;
+            white-space:nowrap;
+            border-top: 1px dashed #d4d4d4;
+            overflow:hidden;
+            &:first-child{
+                border-top:none;
+                }
+            .test-title{
+                float: left;
+                width: 140px;
+                margin-right:4px;
+                text-overflow: ellipsis;
+                color:#333;
+                cursor: move;
+                overflow: hidden;
+            }
+            .test-number{
+                float: left;
+            }
+            .icon{
+                float: right;
+                width: 14px;
+                height: 14px;
+                display: inline-block;
+                background: url(/Public/default/image/answer/delate.png) no-repeat;
+                opacity: .7;
+                margin-top: 10px;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+            .edit-ques{
+                float: right;
+                margin-left:4px;
+                color:#aaa;
+            }
+        }
+        .del-all-part{
+            float: right;
+            font-size:12px;
+            color:#00adef;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    /* 按钮 */
+    .btn-item{
+        margin-left: 20px;
+        border-top: 1px solid #ddd;
+        padding-bottom: 20px;
+    }
+}
