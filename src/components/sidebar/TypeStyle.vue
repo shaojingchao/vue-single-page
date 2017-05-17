@@ -19,16 +19,19 @@
 <script>
   //选择版式
 
+  import A4 from '../../img/formatA4.png'
+  import A3 from '../../img/formatA3.png'
+
   export default {
     name: "type-style",
     props: ["layout"],
     data: function () {
       return {
         typeA4: {
-          src: "/Public/default/image/answer/formatA4.png"
+          src: A4
         },
         typeA3: {
-          src: "/Public/default/image/answer/formatA3.png"
+          src: A3
         }
       }
     },

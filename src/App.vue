@@ -185,7 +185,8 @@
     computed: {
       // 获取答题卡类型
       "answerType": function () {
-        return parseInt((editData.getAttr(2) || 0)) || 1;
+        return 1;
+        // parseInt((typeof editData != null ? (editData.getAttr(2) || 0) : 1)) ||
       },
       // 答题卡头部信息
       "title": function () {

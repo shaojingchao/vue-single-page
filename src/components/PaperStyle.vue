@@ -130,7 +130,38 @@
                                          v-bind:id="'ques-anchor'+partItemIndex+'-'+typeItemIndex"
                                          v-if="typeItem.type==1 && typeItem.content.length>0">
                                         <div class="question explain hover">
-                                            <link rel="import" href="/app/card/view/include/ques-content-handle-btn-group.tpl?__inline">
+                                            <div class="part-menu">
+                                                <a href="javascript:"
+                                                   class="btn"
+                                                   v-on:click="showAlertEditQuesTitle(partItemIndex,typeItemIndex)">
+                                                    <i class="iconfont">&#xe601;</i>编辑
+                                                </a>
+                                                <a href="javascript:"
+                                                   class="btn"
+                                                   v-on:click="showAlertJiedati(partItemIndex,typeItemIndex)">
+                                                    <i class="iconfont">&#xe602;</i>添加
+                                                </a>
+                                                <a href="javascript:"
+                                                   class="btn"
+                                                   v-on:click="delThisQues(partItemIndex,typeItemIndex)">
+                                                    <i class="iconfont">&#xe600;</i>删除
+                                                </a>
+                                                <a v-show="typeItemIndex != partItem.list.length-1"
+                                                   href="javascript:"
+                                                   class="btn"
+                                                   v-on:click="moveDownThisQues(partItemIndex,typeItemIndex)">
+                                                    <i class="iconfont">&#xe605;</i>下移
+                                                </a>
+                                                <a v-show="typeItemIndex !=0"
+                                                   href="javascript:"
+                                                   class="btn"
+                                                   v-on:click="moveUpThisQues(partItemIndex,typeItemIndex)">
+                                                    <i class="iconfont">&#xe604;</i>上移
+                                                </a>
+                                            </div>
+
+
+                                            <!-- <link rel="import" href="/app/card/view/include/ques-content-handle-btn-group.tpl?__inline"> -->
                                             <div class="q-title">
                                                 <ques-title-info v-bind:item="typeItem"></ques-title-info>
                                             </div>

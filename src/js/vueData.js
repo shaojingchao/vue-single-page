@@ -21,7 +21,7 @@ module.exports = {
         max: 0,
         min: 0
     },
-    answerType: '',
+    // answerType: '',
     data: {
         /*====================标准格式=====================*/
         top: { //顶部信息
