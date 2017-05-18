@@ -15,4 +15,24 @@
    @click="moveUpThisQues(partItemIndex,typeItemIndex)">
     <i class="iconfont">&#xe604;</i>上移
 </a>
+<script>
+  export default {
+  name:"btn-group-normal",
+  props:[partItem,partItemIndex,typeItemIndex],
+  methods:{
+        /*下移*/
+        moveDownThisQues: function (pid,tid) {
+            app.moveDown(pid,tid);
+        },
+        /*上移*/
+        moveUpThisQues: function (pid,tid) {
+            app.moveUp(pid,tid);
+        },
+        /*删除*/
+        delThisQues: function (pid,tid,oid) {
+            app.delQuesType(pid,tid,oid);
+        }
+    }
+  }
+</script>
 

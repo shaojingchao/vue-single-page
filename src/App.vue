@@ -123,7 +123,7 @@
 </div>
 </template>
 
-<script>
+<script type="text/javascript">
 
   /*alert folder*/
   import AlertTitle from "./components/alert/AlertTitle.vue"
@@ -150,7 +150,7 @@
 
   import _vue_data from './js/vueData.js'
 
-  console.log(_vue_data);
+  //console.log(_vue_data);
 
 
   export default {
@@ -172,7 +172,7 @@
 
       TypeStyle,
       ExamType,
-//      ForbidView,
+      // ForbidView,
       AddTest,
       ScoreView,
       TestList,
@@ -192,6 +192,11 @@
       "title": function () {
         var _this = this;
         return {top: _this.data.top, title: _this.data.title, sub: _this.data.sub}
+      }
+    },
+    methods:{
+      keyuptest:function(e,a){
+      console.log(e,a)
       }
     }
   }

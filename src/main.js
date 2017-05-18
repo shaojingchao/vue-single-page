@@ -6,6 +6,16 @@ import _vue_data from './js/vueData.js'
 import Vue from 'vue'
 import App from './App.vue'
 
+
+// vue config
+Vue.config.errorHandler = function (a, b, c) {
+  console.log(a, b, c)
+};
+Vue.config.devtools = true;
+Vue.config.silent = false;
+Vue.config.keyCodes = {
+  v: 86
+}
 console.log(_vue_data);
 
 // Vue.config.productionTip = false

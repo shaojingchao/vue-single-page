@@ -258,7 +258,10 @@
                                                 <a href="javascript:;" class="btn" @click="showAlertEditEnZuowen(partItemIndex,typeItemIndex)">
                                                     <i class="iconfont">&#xe601;</i>编辑
                                                 </a>
-                                                <link rel="import" href="/app/card/view/include/ques-handle-btn-group-normal.tpl?__inline">
+                                              <btn-group-normal v-bind:partItem="partItem"
+                                                                v-bind:partItemIndex="typeItemIndex"
+                                                                v-bind:partItemIndex="partItemIndex"></btn-group-normal>
+                                                <!--<link rel="import" href="/app/card/view/include/ques-handle-btn-group-normal.tpl?__inline">-->
                                             </div>
                                             <div class="q-title">
                                                 <ques-title-info v-bind:item="typeItem"></ques-title-info>
@@ -316,6 +319,8 @@ import JdKongTemplate  from "./JdKongTemplate.vue"
 import XuandatiTemplate  from "./XuandatiTemplate.vue"
 import QuesTitleInfo  from "./QuesTitleInfo.vue"
 
+import BtnGroupNormal  from "./QuesHandleBtnGroupNormal.vue"
+
 export default {
     name:"paper-style",
 
@@ -325,7 +330,8 @@ export default {
         MainTop,
         JdKongTemplate,
         XuandatiTemplate,
-        QuesTitleInfo
+        QuesTitleInfo,
+        BtnGroupNormal
     },
     props: [
         "dataState",
