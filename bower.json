@@ -1,0 +1,22 @@
+{
+  "name": "card-vue",
+  "description": "A Vue.js project",
+  "main": "",
+  "authors": [
+    "shaojingchao <1247537710@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/shaojingchao/vue-single-page",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery.cookie": "carhartl/jquery-cookie#^1.4.1",
+    "layer": "sentsin/layer#^3.0.3"
+  }
+}

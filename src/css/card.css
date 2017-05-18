@@ -1166,10 +1166,10 @@ html {
   vertical-align: middle;
 }
 .explain-info .con-item .on-line {
-  background: url(/Public/default/image/answer/online.png) no-repeat 0 50%;
+  background: url(../img/online.png) no-repeat 0 50%;
 }
 .explain-info .con-item .no-line {
-  background: url(/Public/default/image/answer/noline.png) no-repeat 0 50%;
+  background: url(../img/noline.png) no-repeat 0 50%;
 }
 .explain-info .sub-tab-item-wrap {
   margin-top: 6px;

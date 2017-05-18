@@ -85,6 +85,9 @@
                                                @click="changeTypeItemStyle(partItemIndex,typeItemIndex)">
                                                 <i class="iconfont">&#xe60b;</i>切换版式
                                             </a>
+                                            <btn-group-normal v-bind:partItem="partItem"
+                                                                v-bind:typeItemIndex="typeItemIndex"
+                                                                v-bind:partItemIndex="partItemIndex"></btn-group-normal>
                                             <!-- <link rel="import" href="/app/card/view/include/ques-handle-btn-group-normal.tpl?__inline"> -->
                                         </div>
                                         <div class="q-choice clearfix">
@@ -207,6 +210,9 @@
                                                 <a href="javascript:;" class="btn" @click="showAlertEditCnZuowen(partItemIndex,typeItemIndex)">
                                                     <i class="iconfont">&#xe601;</i>编辑
                                                 </a>
+                                                <btn-group-normal v-bind:partItem="partItem"
+                                                                v-bind:typeItemIndex="typeItemIndex"
+                                                                v-bind:partItemIndex="partItemIndex"></btn-group-normal>
                                                 <!-- <link rel="import" href="/app/card/view/include/ques-handle-btn-group-normal.tpl?__inline"> -->
                                             </div>
                                             <div class="q-title">
@@ -259,7 +265,7 @@
                                                     <i class="iconfont">&#xe601;</i>编辑
                                                 </a>
                                               <btn-group-normal v-bind:partItem="partItem"
-                                                                v-bind:partItemIndex="typeItemIndex"
+                                                                v-bind:typeItemIndex="typeItemIndex"
                                                                 v-bind:partItemIndex="partItemIndex"></btn-group-normal>
                                                 <!--<link rel="import" href="/app/card/view/include/ques-handle-btn-group-normal.tpl?__inline">-->
                                             </div>

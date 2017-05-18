@@ -3,9 +3,13 @@
 
 // import jQuery from 'jquery'
 import _vue_data from './js/vueData.js'
+import layer from '../bower_components/layer/build/layer.js'
+import cookie from '../bower_components/jquery.cookie/jquery.cookie.js'
 import Vue from 'vue'
 import App from './App.vue'
 
+
+console.log(layer);
 
 // vue config
 Vue.config.errorHandler = function (a, b, c) {
@@ -90,8 +94,8 @@ window.app = new Vue({
     setCardStorage: function () {
       if (window.localStorage) {
         var localData = {
-          subjectID: Cookie.Get("SubjectId"),
-          id: editData.getAttr(1),
+          subjectID: /*Cookie.Get("SubjectId")*/ 12,
+          id: /*editData.getAttr(1)*/ 1,
           data: JSON.parse(JSON.stringify(this.data))
         };
         localStorage.setItem("cardDataStorage", JSON.stringify(localData));
