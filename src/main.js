@@ -8,19 +8,12 @@ import cookie from '../bower_components/jquery.cookie/jquery.cookie.js'
 import Vue from 'vue'
 import App from './App.vue'
 
-
-console.log(layer);
-
 // vue config
 Vue.config.errorHandler = function (a, b, c) {
   console.log(a, b, c)
 };
 Vue.config.devtools = true;
 Vue.config.silent = false;
-Vue.config.keyCodes = {
-  v: 86
-}
-console.log(_vue_data);
 
 // Vue.config.productionTip = false
 

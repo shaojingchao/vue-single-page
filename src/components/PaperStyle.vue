@@ -329,7 +329,6 @@ import BtnGroupNormal  from "./QuesHandleBtnGroupNormal.vue"
 
 export default {
     name:"paper-style",
-
     components:{
         ExamInfoA3,
         ExamInfoA4,

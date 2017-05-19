@@ -1,74 +1,74 @@
 <template>
   <div class="content clearfix" id="answer-content">
     <alert-title
-        v-bind:title="title"
-        v-bind:modal="alert"></alert-title>
+      v-bind:title="title"
+      v-bind:modal="alert"></alert-title>
 
     <!--编辑答题卡-->
     <alert-exam-info
-        v-bind:data="data"
-        v-bind:care="data.care"
-        v-bind:modal="alert"></alert-exam-info>
+      v-bind:data="data"
+      v-bind:care="data.care"
+      v-bind:modal="alert"></alert-exam-info>
 
     <!--编辑分卷信息-->
     <alert-part-info
-        v-bind:examPart="data.paper"
-        v-bind:modal="alert"></alert-part-info>
+      v-bind:examPart="data.paper"
+      v-bind:modal="alert"></alert-part-info>
 
     <!--添加填空题-->
     <alert-tiankongti
-        v-bind:modal="alert"
-        v-bind:examPart="data.paper"
-        v-bind:examOrderIDArray="examOrderIDArray"></alert-tiankongti>
+      v-bind:modal="alert"
+      v-bind:examPart="data.paper"
+      v-bind:examOrderIDArray="examOrderIDArray"></alert-tiankongti>
 
     <!--选择题-->
     <alert-xuanzeti
-        v-bind:modal="alert"
-        v-bind:examOrderIDArray="examOrderIDArray"></alert-xuanzeti>
+      v-bind:modal="alert"
+      v-bind:examOrderIDArray="examOrderIDArray"></alert-xuanzeti>
 
     <!--解答题-->
     <alert-jiedati
-        v-bind:modal="alert"
-        v-bind:examOrderIDArray="examOrderIDArray"></alert-jiedati>
+      v-bind:modal="alert"
+      v-bind:examOrderIDArray="examOrderIDArray"></alert-jiedati>
 
     <!--编辑解答题-->
     <alert-edit-jiedati
-        v-bind:modal="alert"></alert-edit-jiedati>
+      v-bind:modal="alert"></alert-edit-jiedati>
 
     <!--选答题-->
     <alert-xuandati
-        v-bind:modal="alert"
-        v-bind:examOrderIDArray="examOrderIDArray"></alert-xuandati>
+      v-bind:modal="alert"
+      v-bind:examOrderIDArray="examOrderIDArray"></alert-xuandati>
 
     <!--英语作文-->
     <alert-en-zuowen
-        v-bind:modal="alert"
-        v-bind:examOrderIDArray="examOrderIDArray"></alert-en-zuowen>
+      v-bind:modal="alert"
+      v-bind:examOrderIDArray="examOrderIDArray"></alert-en-zuowen>
 
     <!--语文作文-->
     <alert-cn-zuowen
-        v-bind:modal="alert"
-        v-bind:examOrderIDArray="examOrderIDArray"></alert-cn-zuowen>
+      v-bind:modal="alert"
+      v-bind:examOrderIDArray="examOrderIDArray"></alert-cn-zuowen>
 
     <!--编辑试题title-->
     <alert-edit-ques-title
-        v-bind:examPart="data.paper"
-        v-bind:modal="alert"></alert-edit-ques-title>
+      v-bind:examPart="data.paper"
+      v-bind:modal="alert"></alert-edit-ques-title>
 
     <!--添加试题弹出框-END-->
     <!--答题卡显示区-->
     <div class="left-con" id="left-con">
       <div class="content-box" id="content-box">
         <paper-style
-            v-bind:dataState="dataState"
-            v-bind:data="data"
-            v-bind:examPart="data.paper"
-            v-bind:type="data.type"
-            v-bind:care="data.care"
-            v-bind:modal="alert"
-            v-bind:title="title"
-            v-bind:score="data.score"
-            v-bind:layout="data.layout"></paper-style>
+          v-bind:dataState="dataState"
+          v-bind:data="data"
+          v-bind:examPart="data.paper"
+          v-bind:type="data.type"
+          v-bind:care="data.care"
+          v-bind:modal="alert"
+          v-bind:title="title"
+          v-bind:score="data.score"
+          v-bind:layout="data.layout"></paper-style>
       </div>
     </div>
     <!--答题卡显示区-END-->
@@ -84,46 +84,46 @@
       <div class="panel-item">
         <div class="title">选择版式</div>
         <type-style
-            v-bind:layout="data.layout"></type-style>
+          v-bind:layout="data.layout"></type-style>
       </div>
       <div class="panel-item">
         <div class="title">考试类型</div>
         <exam-type
-            v-bind:type="data.type"></exam-type>
+          v-bind:type="data.type"></exam-type>
       </div>
       <div class="panel-item">
         <div class="title">添加试题</div>
         <add-test
-            v-bind:modal="alert"
-          ></add-test>
+          v-bind:modal="alert"
+        ></add-test>
       </div>
       <div class="panel-item">
         <div class="title">显示分数</div>
         <score-view
-            v-bind:score="data.score"></score-view>
+          v-bind:score="data.score"></score-view>
       </div>
       <!--<div class="panel-item">
       -->
       <!--<div class="title">设置禁止作答区</div>
     -->
-    <!--<forbid-view>
-    -->
-    <!--</forbid-view>
-    -->
-    <!--</div>
-    -->
-    <div class="panel-item">
-      <div class="title">试题列表</div>
-      <test-list
-            v-bind:modal="alert"
-            v-bind:examPart="data.paper"></test-list>
+      <!--<forbid-view>
+      -->
+      <!--</forbid-view>
+      -->
+      <!--</div>
+      -->
+      <div class="panel-item">
+        <div class="title">试题列表</div>
+        <test-list
+          v-bind:modal="alert"
+          v-bind:examPart="data.paper"></test-list>
+      </div>
     </div>
+    <side-btm-handle v-bind:page="computedPage"></side-btm-handle>
   </div>
-  <side-btm-handle v-bind:page="computedPage"></side-btm-handle>
-</div>
 </template>
 
-<script type="text/javascript">
+<script>
 
   /*alert folder*/
   import AlertTitle from "./components/alert/AlertTitle.vue"
@@ -195,14 +195,13 @@
       }
     },
     methods:{
-      keyuptest:function(e,a){
-      console.log(e,a)
-      }
     }
   }
+
 </script>
 
 <style>
   @import 'css/card.css';
   #app{height:100%;}
+
 </style>

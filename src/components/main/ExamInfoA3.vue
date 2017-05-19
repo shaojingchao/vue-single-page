@@ -49,9 +49,10 @@
         <div class="exam-cont examtype-ks" v-if="type.display=='4'">
         A3课时训练
 
-            <!-- <link rel="import" href="/app/card/view/include/exam-info-exam-number.tpl?__inline">
-            <link rel="import" href="/app/card/view/include/exam-info-notice.tpl?__inline">
-            <link rel="import" href="/app/card/view/include/exam-info-miss.tpl?__inline"> -->
+            <!--<link rel="import" href="/app/card/view/include/exam-info-exam-number.tpl?__inline">-->
+            <!--<link rel="import" href="/app/card/view/include/exam-info-notice.tpl?__inline">-->
+
+            <!--<link rel="import" href="/app/card/view/include/exam-info-miss.tpl?__inline">-->
         </div>
     </div>
 </template>
