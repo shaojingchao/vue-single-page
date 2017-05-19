@@ -202,6 +202,7 @@
 
 <style>
   @import 'css/card.css';
+  /*@import '../bower_components/layer/build/skin/default/layer.css';*/
   #app{height:100%;}
 
 </style>
