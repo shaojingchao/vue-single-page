@@ -14,6 +14,9 @@ Vue.config.errorHandler = function (a, b, c) {
 };
 Vue.config.devtools = true;
 Vue.config.silent = false;
+window.U = function(url){
+  return url;
+}
 
 // Vue.config.productionTip = false
 
@@ -404,7 +407,7 @@ window.app = new Vue({
     tryGetSavedData: function () {
       var id = 0;
       try {
-        id = editData.getAttr(1);
+        id = /*editData.getAttr(1)*/ 0;
       } catch (e) {
         $.console.warn(e);
       }
@@ -415,7 +418,7 @@ window.app = new Vue({
     getSavedData: function () {
       var _this = this;
       var params = {
-        CookieStr: editData.getall(),
+        CookieStr: /*editData.getall()*/ null,
         SaveID: _this.tryGetSavedData(),
         Style: 2
       };
@@ -506,7 +509,7 @@ window.app = new Vue({
         "(2).【保存状态】是上次配置答题卡的保存状态！<br>请选择！";
       var btn = ["确定", "取消"];
       var isThisLocalData = cardDataStorage &&
-        cardDataStorage.id == editData.getAttr(1) &&
+        cardDataStorage.id == /*editData.getAttr(1)*/ null &&
         cardDataStorage.subjectID == Cookie.Get("SubjectId");
 
       // 有保存记录，且有上次修改未保存状态

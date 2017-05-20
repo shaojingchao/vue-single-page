@@ -18,7 +18,7 @@
       saveAnswerJson: function () {
         var params = {
           Json: JSON.stringify(app.data),
-          SaveID: editData.getAttr(1) || 0
+          SaveID: /*editData.getAttr(1)*/ null || 0
         };
         var layerSave = layer.load(1);
         $.post(U("Home/Index/saveAnswerJson"), params, function (data) {
@@ -91,7 +91,7 @@
         }
 
         // 获取答题卡版式，如果是AB卷弹出AB卷选择框，否则下载统一版式
-        if (editData.getAttr(2) == '2') {
+        if (/*editData.getAttr(2)*/ null == '2') {
           layer.open({
             type: 0,
             icon: 0,
