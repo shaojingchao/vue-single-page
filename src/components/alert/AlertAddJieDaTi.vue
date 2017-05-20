@@ -38,7 +38,8 @@
                   v-for="(addItemContent,addItemContentIndex) in selectedAddedTestNum-0"
                   v-show="currentItemIndex==addItemContentIndex"
                   v-bind:computedOrderID="computedOrderID+addItemContentIndex"
-                  v-bind:addItemContentIndex="addItemContentIndex"></jiedati-add-test-item>
+                  v-bind:addItemContentIndex="addItemContentIndex"
+                  v-bind:key="addItemContent"></jiedati-add-test-item>
               </div>
             </div>
           </div>

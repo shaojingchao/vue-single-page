@@ -12,7 +12,7 @@
       <tr>
         <td v-for="itemtr in 13">
           <div v-for="item in 10">
-            [ <span class="pad4"> {{item-1}} </span> ]
+            [<span class="pad4"> {{item-1}} </span>]
           </div>
         </td>
       </tr>

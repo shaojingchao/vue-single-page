@@ -31,6 +31,10 @@ module.exports = {
       options: vueLoaderConfig
     }, {
       test: /\.css$/,
+      include: [
+        '/src/',//表示在src目录下的css需要编译
+        '/bower_components/'   //增加此项
+      ],
       loader: 'style-loader!css-loader'
     }, {
       test: /\.less$/,

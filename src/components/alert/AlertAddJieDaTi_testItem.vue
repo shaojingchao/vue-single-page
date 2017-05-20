@@ -40,7 +40,8 @@
               v-show="currentSubItemIndex==addSubItemContentIndex"
               v-bind:computedOrderID="computedOrderID"
               v-bind:addItemContentIndex="addItemContentIndex"
-              v-bind:addSubItemContentIndex="addSubItemContentIndex"></sub-test-item>
+              v-bind:addSubItemContentIndex="addSubItemContentIndex"
+              v-bind:key="addSubItemContentIndex"></sub-test-item>
           </div>
         </div>
       </div>
@@ -49,7 +50,8 @@
         <sub-test-item
           v-bind:computedOrderID="computedOrderID"
           v-bind:addItemContentIndex="addItemContentIndex"
-          v-bind:addSubItemContentIndex="0"></sub-test-item>
+          v-bind:addSubItemContentIndex="0"
+          v-bind:key="0"></sub-test-item>
       </div>
     </div>
   </div>

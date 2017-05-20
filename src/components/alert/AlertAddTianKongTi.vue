@@ -35,14 +35,10 @@
                 v-bind:selectedAddedTestNum="selectedAddedTestNum"
                 v-bind:itemIndex="itemIndex"
                 v-bind:computedOrderID="computedOrderID"
-                v-for="(subItem,itemIndex) in (selectedAddedTestNum-0)"></tiankongti-sub>
+                v-for="(subItem,itemIndex) in (selectedAddedTestNum-0)"
+                v-bind:key="itemIndex"></tiankongti-sub>
             </div>
-            <!--v-bind:toggleSetOrderID="toggleSetOrderID"
-                        v-bind:getOrderID="getOrderID"
-                        v-bind:itemIndex="itemIndex"-->
-
           </div>
-
         </div>
       </div>
     </div>

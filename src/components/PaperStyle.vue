@@ -181,7 +181,7 @@
                             v-bind:partItemIndex="partItemIndex"
                             v-bind:typeItemIndex="typeItemIndex"
                             v-bind:subOrderID="subOrderID"
-                          ></jd-kong-template>
+                            v-bind:key="subOrderID"></jd-kong-template>
                         </div>
                       </div>
                     </div>
